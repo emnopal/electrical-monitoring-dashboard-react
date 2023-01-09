@@ -1,0 +1,41 @@
+{
+  "name": "electrical-monitoring-dashboard-react",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "react-scripts": "^3.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "dotenv": "^16.0.3",
+    "firebase": "^9.15.0",
+    "firebase-admin": "^11.4.1",
+    "highcharts": "^7.1.2",
+    "html-react-parser": "^3.0.7",
+    "lodash": "^4.17.13",
+    "react": "^16.8.6",
+    "react-bootstrap": "^2.7.0",
+    "react-dom": "^16.8.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
