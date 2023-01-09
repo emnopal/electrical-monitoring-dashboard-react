@@ -8,9 +8,6 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
-    "dotenv": "^16.0.3",
-    "firebase": "^9.15.0",
-    "firebase-admin": "^11.4.1",
     "highcharts": "^7.1.2",
     "html-react-parser": "^3.0.7",
     "lodash": "^4.17.13",
