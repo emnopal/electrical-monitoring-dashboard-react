@@ -16,6 +16,10 @@ class StatisticsChart extends Component {
             timeLowest: this.convertLocale(this.sortObj(props.data, props.title, "desc")[0]["timestamp"]),
             mean: this.findMean(props.data, props.title),
             median: this.findMedian(props.data, props.title),
+            latestData: this.sortObj(props.data, "timestamp")[0][props.title],
+            latestTime: this.convertLocale(this.sortObj(props.data, "timestamp")[0]["timestamp"]),
+            firstData: this.sortObj(props.data, "timestamp", "desc")[0][props.title],
+            firstTime: this.convertLocale(this.sortObj(props.data, "timestamp", "desc")[0]["timestamp"]),
         };
     }
 
@@ -30,6 +34,10 @@ class StatisticsChart extends Component {
                 timeLowest: this.convertLocale(this.sortObj(this.props.data, this.props.title, "desc")[0]["timestamp"]),
                 mean: this.findMean(this.props.data, this.props.title),
                 median: this.findMedian(this.props.data, this.props.title),
+                latestData: this.sortObj(this.props.data, "timestamp")[0][this.props.title],
+                latestTime: this.convertLocale(this.sortObj(this.props.data, "timestamp")[0]["timestamp"]),
+                firstData: this.sortObj(this.props.data, "timestamp", "desc")[0][this.props.title],
+                firstTime: this.convertLocale(this.sortObj(this.props.data, "timestamp", "desc")[0]["timestamp"]),
             });
         }
     }
@@ -91,6 +99,14 @@ class StatisticsChart extends Component {
                         Median {this.state.title}: {this.state.median}
                     </h6>
                 </Col>
+                <Col>
+                    <h6>
+                        Latest Data of {this.state.title}: {this.state.latestData} ({this.state.latestTime})
+                    </h6>
+                    <h6>
+                        First Data of {this.state.title}: {this.state.firstData} ({this.state.firstTime})
+                    </h6>
+                </Col>
             </Row>
         );
     }
@@ -98,6 +114,7 @@ class StatisticsChart extends Component {
 
 StatisticsChart.propTypes = {
     title: PropTypes.string,
+    data: PropTypes.array,
 }
 
 export default StatisticsChart;

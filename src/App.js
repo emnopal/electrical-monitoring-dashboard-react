@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StatisticsChart from "./chart/StatisticsChart";
+import TabelChart from './chart/TableChart';
 import {current} from './data/current';
 import {energy} from './data/energy';
 import {frequency} from './data/frequency';
@@ -109,6 +110,7 @@ class App extends Component {
                 <StatisticsChart data={this.state.data} title={this.state.title} />
                 <ChartHighstock data={this.state.data} title={this.state.title} />
             </Container>
+            <TabelChart data={this.state.data} title={this.state.title} />
         </Container>
       </div>
     );
