@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import StatisticsChart from "./chart/StatisticsChart";
 import TabelChart from './chart/TableChart';
 import {current} from './data/current';
@@ -95,8 +96,10 @@ class App extends Component {
         <Container>
             <Container>
                 <h1>Electrical Monitoring Dashboard</h1>
+                Note: Time in UTC+7 (Asia/Jakarta)
             </Container>
-            <Nav>
+            <br/>
+            <Nav className="justify-content-center">
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 2 ? 'active' : '')} onClick={this.energySelected}>Energy</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.frequencySelected}>Frequency</Button>
@@ -108,6 +111,7 @@ class App extends Component {
             <br/>
             <Container>
                 <StatisticsChart data={this.state.data} title={this.state.title} />
+                <br/>
                 <ChartHighstock data={this.state.data} title={this.state.title} />
             </Container>
             <TabelChart data={this.state.data} title={this.state.title} />
