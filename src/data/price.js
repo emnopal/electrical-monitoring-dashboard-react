@@ -1,170 +1,170 @@
 export const price = [
     {
         "Total Price": 5257.26,
-        "readable_timestamp": "Rabu, 14 Desember 2022 05.25.07 UTC"
+        "timestamp": "1670995507"
     },
     {
         "Total Price": 5205.25,
-        "readable_timestamp": "Rabu, 14 Desember 2022 05.14.59 UTC"
+        "timestamp": "1670994899"
     },
     {
         "Total Price": 5173.47,
-        "readable_timestamp": "Rabu, 14 Desember 2022 05.04.52 UTC"
+        "timestamp": "1670994292"
     },
     {
         "Total Price": 5117.13,
-        "readable_timestamp": "Rabu, 14 Desember 2022 04.54.46 UTC"
+        "timestamp": "1670993686"
     },
     {
         "Total Price": 5052.12,
-        "readable_timestamp": "Rabu, 14 Desember 2022 04.44.42 UTC"
+        "timestamp": "1670993082"
     },
     {
         "Total Price": 4936.54,
-        "readable_timestamp": "Rabu, 14 Desember 2022 04.34.38 UTC"
+        "timestamp": "1670992478"
     },
     {
         "Total Price": 4799.29,
-        "readable_timestamp": "Rabu, 14 Desember 2022 04.24.33 UTC"
+        "timestamp": "1670991873"
     },
     {
         "Total Price": 4669.27,
-        "readable_timestamp": "Rabu, 14 Desember 2022 04.14.28 UTC"
+        "timestamp": "1670991268"
     },
     {
         "Total Price": 4578.25,
-        "readable_timestamp": "Rabu, 14 Desember 2022 04.04.21 UTC"
+        "timestamp": "1670990661"
     },
     {
         "Total Price": 4524.8,
-        "readable_timestamp": "Rabu, 14 Desember 2022 03.54.17 UTC"
+        "timestamp": "1670990057"
     },
     {
         "Total Price": 4465.57,
-        "readable_timestamp": "Rabu, 14 Desember 2022 03.44.13 UTC"
+        "timestamp": "1670989453"
     },
     {
         "Total Price": 4390.44,
-        "readable_timestamp": "Rabu, 14 Desember 2022 03.34.07 UTC"
+        "timestamp": "1670988847"
     },
     {
         "Total Price": 4342.77,
-        "readable_timestamp": "Rabu, 14 Desember 2022 03.24.03 UTC"
+        "timestamp": "1670988243"
     },
     {
         "Total Price": 4293.65,
-        "readable_timestamp": "Rabu, 14 Desember 2022 03.13.57 UTC"
+        "timestamp": "1670987637"
     },
     {
         "Total Price": 4258.98,
-        "readable_timestamp": "Rabu, 14 Desember 2022 03.03.52 UTC"
+        "timestamp": "1670987032"
     },
     {
         "Total Price": 4199.74,
-        "readable_timestamp": "Rabu, 14 Desember 2022 02.53.47 UTC"
+        "timestamp": "1670986427"
     },
     {
         "Total Price": 4139.07,
-        "readable_timestamp": "Rabu, 14 Desember 2022 02.43.42 UTC"
+        "timestamp": "1670985822"
     },
     {
         "Total Price": 4004.71,
-        "readable_timestamp": "Rabu, 14 Desember 2022 02.33.38 UTC"
+        "timestamp": "1670985218"
     },
     {
         "Total Price": 3835.68,
-        "readable_timestamp": "Rabu, 14 Desember 2022 02.23.33 UTC"
+        "timestamp": "1670984613"
     },
     {
         "Total Price": 3689.76,
-        "readable_timestamp": "Rabu, 14 Desember 2022 02.13.25 UTC"
+        "timestamp": "1670984005"
     },
     {
         "Total Price": 3529.4,
-        "readable_timestamp": "Rabu, 14 Desember 2022 02.03.20 UTC"
+        "timestamp": "1670983400"
     },
     {
         "Total Price": 3366.15,
-        "readable_timestamp": "Rabu, 14 Desember 2022 01.53.15 UTC"
+        "timestamp": "1670982795"
     },
     {
         "Total Price": 3179.78,
-        "readable_timestamp": "Rabu, 14 Desember 2022 01.43.10 UTC"
+        "timestamp": "1670982190"
     },
     {
         "Total Price": 3007.87,
-        "readable_timestamp": "Rabu, 14 Desember 2022 01.33.05 UTC"
+        "timestamp": "1670981585"
     },
     {
         "Total Price": 2860.51,
-        "readable_timestamp": "Rabu, 14 Desember 2022 01.22.57 UTC"
+        "timestamp": "1670980977"
     },
     {
         "Total Price": 2700.14,
-        "readable_timestamp": "Rabu, 14 Desember 2022 01.12.52 UTC"
+        "timestamp": "1670980372"
     },
     {
         "Total Price": 2554.23,
-        "readable_timestamp": "Rabu, 14 Desember 2022 01.02.47 UTC"
+        "timestamp": "1670979767"
     },
     {
         "Total Price": 2370.75,
-        "readable_timestamp": "Rabu, 14 Desember 2022 00.52.42 UTC"
+        "timestamp": "1670979162"
     },
     {
         "Total Price": 2201.72,
-        "readable_timestamp": "Rabu, 14 Desember 2022 00.42.38 UTC"
+        "timestamp": "1670978558"
     },
     {
         "Total Price": 2022.58,
-        "readable_timestamp": "Rabu, 14 Desember 2022 00.32.34 UTC"
+        "timestamp": "1670977954"
     },
     {
         "Total Price": 1875.22,
-        "readable_timestamp": "Rabu, 14 Desember 2022 00.22.26 UTC"
+        "timestamp": "1670977346"
     },
     {
         "Total Price": 1729.31,
-        "readable_timestamp": "Rabu, 14 Desember 2022 00.12.22 UTC"
+        "timestamp": "1670976742"
     },
     {
         "Total Price": 1563.17,
-        "readable_timestamp": "Rabu, 14 Desember 2022 00.02.18 UTC"
+        "timestamp": "1670976138"
     },
     {
         "Total Price": 1394.14,
-        "readable_timestamp": "Selasa, 13 Desember 2022 23.52.14 UTC"
+        "timestamp": "1670975534"
     },
     {
         "Total Price": 1210.66,
-        "readable_timestamp": "Selasa, 13 Desember 2022 23.42.10 UTC"
+        "timestamp": "1670974930"
     },
     {
         "Total Price": 1050.3,
-        "readable_timestamp": "Selasa, 13 Desember 2022 23.32.04 UTC"
+        "timestamp": "1670974324"
     },
     {
         "Total Price": 908.72,
-        "readable_timestamp": "Selasa, 13 Desember 2022 23.22.00 UTC"
+        "timestamp": "1670973720"
     },
     {
         "Total Price": 751.24,
-        "readable_timestamp": "Selasa, 13 Desember 2022 23.11.56 UTC"
+        "timestamp": "1670973116"
     },
     {
         "Total Price": 590.88,
-        "readable_timestamp": "Selasa, 13 Desember 2022 23.01.50 UTC"
+        "timestamp": "1670972510"
     },
     {
         "Total Price": 405.96,
-        "readable_timestamp": "Selasa, 13 Desember 2022 22.51.43 UTC"
+        "timestamp": "1670971903"
     },
     {
         "Total Price": 238.38,
-        "readable_timestamp": "Selasa, 13 Desember 2022 22.41.39 UTC"
+        "timestamp": "1670971299"
     },
     {
         "Total Price": 234.31,
-        "readable_timestamp": "Selasa, 13 Desember 2022 22.32.38 UTC"
+        "timestamp": "1670970758"
     }
 ];
