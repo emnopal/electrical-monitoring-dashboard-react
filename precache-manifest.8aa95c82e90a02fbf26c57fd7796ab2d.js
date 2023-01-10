@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "033ea2df5d23dcbb3013188672bbd786",
+    "revision": "1440b15acdfb58bc651163bb74df031d",
     "url": "/electrical-monitoring-dashboard-react/index.html"
   },
   {
