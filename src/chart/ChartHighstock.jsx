@@ -15,13 +15,11 @@ class ChartHighstock extends Component {
 		let formatData = [];
 		formatData = this.props.data
 			.map((obj) => {
-				const date = obj["Date"].split("/");
 				const dateInSeconds = new Date(
-					`20${date[2]}`,
-					+date[1] - 1,
-					date[0],
+					(parseInt(obj["timestamp"]) + (3600 * 7)) * 1000, // currently use manual to convert UTC to UTC+7
 				).getTime();
-				return [dateInSeconds, obj["Close"]];
+				console.log(dateInSeconds)
+				return [dateInSeconds, obj[this.props.title]];
 			})
 			.reverse();
 
@@ -36,8 +34,12 @@ class ChartHighstock extends Component {
 
 			series: [
 				{
-					name: "",
+					name: this.props.title,
 					data: formatData,
+					marker: {
+						enabled: true,
+						radius: 3,
+					},
 					tooltip: {
 						valueDecimals: 2,
 					},
@@ -48,12 +50,12 @@ class ChartHighstock extends Component {
 
 	render() {
 		return <div id="chart">Highstock</div>;
-	    // return (
-        //     <div>
-        //         <div id="chart"/>
-        //     </div>
-        // )
-    }
+		// return (
+		//     <div>
+		//         <div id="chart"/>
+		//     </div>
+		// )
+	}
 }
 
 ChartHighstock.propTypes = {

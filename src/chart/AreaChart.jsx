@@ -16,13 +16,8 @@ class AreaChart extends Component {
 
 		formatData = this.props.data
 			.map((obj) => {
-				const date = obj["Date"].split("/");
-				const dateInSeconds = new Date(
-					`20${date[2]}`,
-					+date[1] - 1,
-					date[0],
-				).getTime();
-				return [dateInSeconds, obj["Close"]];
+				const dateInSeconds = new Date(obj["timestamp"]*1000).getTime();
+				return [dateInSeconds, obj[this.props.title]];
 			})
 			.reverse();
 

@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import { hubStock as hubData } from './data/hubStock';
-import { googStock as googData } from './data/googStock';
 import ChartHighstock from './chart/ChartHighstock';
 import * as _ from 'lodash';
 import './App.css';
-import AreaChart from "./chart/AreaChart";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StatisticsChart from "./chart/StatisticsChart";
+import {current} from './data/current';
+import {energy} from './data/energy';
+import {frequency} from './data/frequency';
+import {power} from './data/power';
+import {powerFactor} from './data/powerFactor';
+import {price} from './data/price';
+import {voltage} from './data/voltage';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selected: 1,
-      data: _.cloneDeep(googData),
+      data: _.cloneDeep(current),
       title: 'Current'
     };
     this.currentSelected = this.currentSelected.bind(this);
@@ -31,7 +35,7 @@ class App extends Component {
   currentSelected() {
     this.setState({
       selected: 1,
-      data: _.cloneDeep(hubData),
+      data: _.cloneDeep(current),
       title: 'Current'
     });
   }
@@ -39,7 +43,7 @@ class App extends Component {
   energySelected() {
     this.setState({
       selected: 2,
-      data: _.cloneDeep(googData),
+      data: _.cloneDeep(energy),
       title: 'Energy'
     });
   }
@@ -47,7 +51,7 @@ class App extends Component {
   frequencySelected() {
     this.setState({
       selected: 3,
-      data: _.cloneDeep(googData),
+      data: _.cloneDeep(frequency),
       title: 'Frequency'
     });
   }
@@ -55,7 +59,7 @@ class App extends Component {
   powerFactorSelected() {
     this.setState({
       selected: 4,
-      data: _.cloneDeep(googData),
+      data: _.cloneDeep(powerFactor),
       title: 'Power Factor'
     });
   }
@@ -63,7 +67,7 @@ class App extends Component {
   powerSelected() {
     this.setState({
       selected: 5,
-      data: _.cloneDeep(googData),
+      data: _.cloneDeep(power),
       title: 'Power'
     });
   }
@@ -71,15 +75,15 @@ class App extends Component {
   priceSelected() {
     this.setState({
       selected: 6,
-      data: _.cloneDeep(googData),
-      title: 'Price'
+      data: _.cloneDeep(price),
+      title: 'Total Price'
     });
   }
 
   voltageSelected() {
     this.setState({
       selected: 7,
-      data: _.cloneDeep(googData),
+      data: _.cloneDeep(voltage),
       title: 'Voltage'
     });
   }
@@ -89,7 +93,7 @@ class App extends Component {
       <div className="App">
         <Container>
             <Container>
-                <h1>Gatau ini apaan</h1>
+                <h1>Electric Monitoring</h1>
             </Container>
             <Nav>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
@@ -97,13 +101,12 @@ class App extends Component {
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.frequencySelected}>Frequency</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 4 ? 'active' : '')} onClick={this.powerFactorSelected}>Power Factor</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 5 ? 'active' : '')} onClick={this.powerSelected}>Power</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 6 ? 'active' : '')} onClick={this.priceSelected}>Price</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 6 ? 'active' : '')} onClick={this.priceSelected}>Total Price</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 7 ? 'active' : '')} onClick={this.voltageSelected}>Voltage</Button>
             </Nav>
             <br/>
             <Container>
-                <StatisticsChart title={this.state.title} />
-                <AreaChart data={this.state.data} title={this.state.title} />
+                <StatisticsChart data={this.state.data} title={this.state.title} />
                 <ChartHighstock data={this.state.data} title={this.state.title} />
             </Container>
         </Container>
