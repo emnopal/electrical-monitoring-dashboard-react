@@ -94,7 +94,7 @@ class App extends Component {
       <div className="App">
         <Container>
             <Container>
-                <h1>Electric Monitoring</h1>
+                <h1>Electrical Monitoring Dashboard</h1>
             </Container>
             <Nav>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
