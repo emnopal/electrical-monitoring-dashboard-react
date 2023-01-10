@@ -1,5 +1,3 @@
-## react-charts-and-maps
+# electrical-monitoring-dashboard-react
 
-This project contains the implementation of libraries D3, highcharts and react-google-maps with the ReactJS. It shows how easy is adding those libraries in ReactJS. 
-
-The project can be seen at https://marekdano.github.io/react-charts-and-maps/
+another project which inspired me to create this website: https://marekdano.github.io/react-charts-and-maps/
