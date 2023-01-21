@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/electrical-monitoring-dashboard-react/static/css/main.011e96f4.chunk.css",
-    "main.js": "/electrical-monitoring-dashboard-react/static/js/main.9680630b.chunk.js",
-    "main.js.map": "/electrical-monitoring-dashboard-react/static/js/main.9680630b.chunk.js.map",
+    "main.css": "/electrical-monitoring-dashboard-react/static/css/main.f1788d7a.chunk.css",
+    "main.js": "/electrical-monitoring-dashboard-react/static/js/main.df865e6d.chunk.js",
+    "main.js.map": "/electrical-monitoring-dashboard-react/static/js/main.df865e6d.chunk.js.map",
     "runtime-main.js": "/electrical-monitoring-dashboard-react/static/js/runtime-main.d928dce7.js",
     "runtime-main.js.map": "/electrical-monitoring-dashboard-react/static/js/runtime-main.d928dce7.js.map",
     "static/css/2.e8cc2f12.chunk.css": "/electrical-monitoring-dashboard-react/static/css/2.e8cc2f12.chunk.css",
-    "static/js/2.10bf5c6b.chunk.js": "/electrical-monitoring-dashboard-react/static/js/2.10bf5c6b.chunk.js",
-    "static/js/2.10bf5c6b.chunk.js.map": "/electrical-monitoring-dashboard-react/static/js/2.10bf5c6b.chunk.js.map",
+    "static/js/2.badfbcde.chunk.js": "/electrical-monitoring-dashboard-react/static/js/2.badfbcde.chunk.js",
+    "static/js/2.badfbcde.chunk.js.map": "/electrical-monitoring-dashboard-react/static/js/2.badfbcde.chunk.js.map",
     "index.html": "/electrical-monitoring-dashboard-react/index.html",
-    "precache-manifest.8d8853164d9efa78ff0b68fefc5f5655.js": "/electrical-monitoring-dashboard-react/precache-manifest.8d8853164d9efa78ff0b68fefc5f5655.js",
+    "precache-manifest.cb06469127304082c1d8a3a37cb7962c.js": "/electrical-monitoring-dashboard-react/precache-manifest.cb06469127304082c1d8a3a37cb7962c.js",
     "service-worker.js": "/electrical-monitoring-dashboard-react/service-worker.js",
     "static/css/2.e8cc2f12.chunk.css.map": "/electrical-monitoring-dashboard-react/static/css/2.e8cc2f12.chunk.css.map",
-    "static/css/main.011e96f4.chunk.css.map": "/electrical-monitoring-dashboard-react/static/css/main.011e96f4.chunk.css.map",
-    "static/js/2.10bf5c6b.chunk.js.LICENSE.txt": "/electrical-monitoring-dashboard-react/static/js/2.10bf5c6b.chunk.js.LICENSE.txt"
+    "static/css/main.f1788d7a.chunk.css.map": "/electrical-monitoring-dashboard-react/static/css/main.f1788d7a.chunk.css.map",
+    "static/js/2.badfbcde.chunk.js.LICENSE.txt": "/electrical-monitoring-dashboard-react/static/js/2.badfbcde.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d928dce7.js",
     "static/css/2.e8cc2f12.chunk.css",
-    "static/js/2.10bf5c6b.chunk.js",
-    "static/css/main.011e96f4.chunk.css",
-    "static/js/main.9680630b.chunk.js"
+    "static/js/2.badfbcde.chunk.js",
+    "static/css/main.f1788d7a.chunk.css",
+    "static/js/main.df865e6d.chunk.js"
   ]
 }
