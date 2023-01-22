@@ -18,7 +18,6 @@ class ChartHighstock extends Component {
 				const dateInSeconds = new Date(
 					(parseInt(obj["timestamp"]) + (3600 * 7)) * 1000, // currently use manual to convert UTC to UTC+7
 				).getTime();
-				console.log(dateInSeconds)
 				return [dateInSeconds, obj[this.props.title]];
 			})
 			.reverse();
@@ -50,11 +49,6 @@ class ChartHighstock extends Component {
 
 	render() {
 		return <div id="chart">Highstock</div>;
-		// return (
-		//     <div>
-		//         <div id="chart"/>
-		//     </div>
-		// )
 	}
 }
 

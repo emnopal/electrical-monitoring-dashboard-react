@@ -9,97 +9,94 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import StatisticsChart from "./chart/StatisticsChart";
 import TabelChart from './chart/TableChart';
-import {current} from './data/current';
-import {energy} from './data/energy';
-import {frequency} from './data/frequency';
-import {power} from './data/power';
-import {powerFactor} from './data/powerFactor';
-import {price} from './data/price';
-import {voltage} from './data/voltage';
+import dbRef from './config/firebaseConfig';
+import { get, child } from 'firebase/database';
+import flattenObj from './utils/flattenObj';
+import FetchFirebaseDatabase from './utils/fetchFirebaseDatabase';
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      selected: 1,
-      data: _.cloneDeep(current),
-      title: 'Current'
+      selected: 0,
+      data: _.cloneDeep([]),
+      title: 'init',
     };
-    this.currentSelected = this.currentSelected.bind(this);
-    this.energySelected = this.energySelected.bind(this);
-    this.frequencySelected = this.frequencySelected.bind(this);
-    this.powerFactorSelected = this.powerFactorSelected.bind(this);
-    this.powerSelected = this.powerSelected.bind(this);
-    this.priceSelected = this.priceSelected.bind(this);
-    this.voltageSelected = this.voltageSelected.bind(this);
+
+    this.zeroSelected = this.zeroSelected.bind(this);
+    this.currentSelected = this.keySelected.bind(this, 1, 'Current');
+    this.energySelected = this.keySelected.bind(this, 2, 'Energy');
+    this.frequencySelected = this.keySelected.bind(this, 3, 'Frequency');
+    this.powerFactorSelected = this.keySelected.bind(this, 4, 'Power Factor');
+    this.powerSelected = this.keySelected.bind(this, 5, 'Power');
+    this.priceSelected = this.keySelected.bind(this, 6, 'Total Price');
+    this.voltageSelected = this.keySelected.bind(this, 7, 'Voltage');
+
   }
 
-  currentSelected() {
+  async keySelected(selected, title) {
+    const snapshot = await get(child(dbRef, `UsersData/${process.env.REACT_APP_UID}`));
+    if (snapshot.exists()) {
+      const snapshotFlatten = flattenObj(snapshot.val(), 'array');
+      const snapshotHandlerClass = new FetchFirebaseDatabase(snapshotFlatten);
+      const data = snapshotHandlerClass.getValueAll([title, 'timestamp'], null, null, 'object');
+      this.setState({
+        selected: selected,
+        data: _.cloneDeep(data),
+        title: title
+      });
+    }
+  }
+
+  zeroSelected() {
     this.setState({
-      selected: 1,
-      data: _.cloneDeep(current),
-      title: 'Current'
-    });
+      selected: 0,
+      data: null,
+      title: null,
+    })
   }
 
-  energySelected() {
-    this.setState({
-      selected: 2,
-      data: _.cloneDeep(energy),
-      title: 'Energy'
-    });
-  }
-
-  frequencySelected() {
-    this.setState({
-      selected: 3,
-      data: _.cloneDeep(frequency),
-      title: 'Frequency'
-    });
-  }
-
-  powerFactorSelected() {
-    this.setState({
-      selected: 4,
-      data: _.cloneDeep(powerFactor),
-      title: 'Power Factor'
-    });
-  }
-
-  powerSelected() {
-    this.setState({
-      selected: 5,
-      data: _.cloneDeep(power),
-      title: 'Power'
-    });
-  }
-
-  priceSelected() {
-    this.setState({
-      selected: 6,
-      data: _.cloneDeep(price),
-      title: 'Total Price'
-    });
-  }
-
-  voltageSelected() {
-    this.setState({
-      selected: 7,
-      data: _.cloneDeep(voltage),
-      title: 'Voltage'
-    });
-  }
-
-  render() {
+  zeroHandlerSelected() {
     return (
-      <div className="App">
         <Container>
+            <br/>
+            <br/>
             <Container>
                 <h1>Electrical Monitoring Dashboard</h1>
                 Note: Time in UTC+7 (Asia/Jakarta)
             </Container>
             <br/>
             <Nav className="justify-content-center">
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 0 ? 'active' : '')} onClick={this.zeroSelected}>Home</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 2 ? 'active' : '')} onClick={this.energySelected}>Energy</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.frequencySelected}>Frequency</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 4 ? 'active' : '')} onClick={this.powerFactorSelected}>Power Factor</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 5 ? 'active' : '')} onClick={this.powerSelected}>Power</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 6 ? 'active' : '')} onClick={this.priceSelected}>Total Price</Button>
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 7 ? 'active' : '')} onClick={this.voltageSelected}>Voltage</Button>
+            </Nav>
+            <br/>
+            <Container>
+                <h1>Welcome!</h1>
+            </Container>
+        </Container>
+    );
+  }
+
+  otherHandlerSelected() {
+    return (
+        <Container>
+            <br/>
+            <br/>
+            <Container>
+                <h1>Electrical Monitoring Dashboard</h1>
+                Note: Time in UTC+7 (Asia/Jakarta)
+            </Container>
+            <br/>
+            <Nav className="justify-content-center">
+                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 0 ? 'active' : '')} onClick={this.zeroSelected}>Home</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 2 ? 'active' : '')} onClick={this.energySelected}>Energy</Button>
                 <Button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.frequencySelected}>Frequency</Button>
@@ -113,11 +110,25 @@ class App extends Component {
                 <StatisticsChart data={this.state.data} title={this.state.title} />
                 <br/>
                 <ChartHighstock data={this.state.data} title={this.state.title} />
+                <br/>
+                <TabelChart data={this.state.data} title={this.state.title} />
             </Container>
-            <TabelChart data={this.state.data} title={this.state.title} />
         </Container>
-      </div>
     );
+  }
+
+  render() {
+    let conditionalContainer;
+    if(this.state.selected === 0) {
+      conditionalContainer = this.zeroHandlerSelected();
+    } else {
+      conditionalContainer = this.otherHandlerSelected();
+    }
+    return (
+      <div className="App">
+        {conditionalContainer}
+      </div>
+    )
   }
 }
 

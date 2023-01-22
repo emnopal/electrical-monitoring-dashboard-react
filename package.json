@@ -5,10 +5,14 @@
   "homepage": "https://emnopal.github.io/electrical-monitoring-dashboard-react/",
   "devDependencies": {
     "gh-pages": "^2.0.1",
+    "nodemon": "^2.0.20",
     "react-scripts": "^3.0.1"
   },
   "dependencies": {
+    "@firebase/database-compat": "^0.3.1",
     "bootstrap": "^5.2.3",
+    "firebase": "^9.16.0",
+    "firebase-admin": "^11.5.0",
     "highcharts": "^7.1.2",
     "html-react-parser": "^3.0.7",
     "lodash": "^4.17.13",
