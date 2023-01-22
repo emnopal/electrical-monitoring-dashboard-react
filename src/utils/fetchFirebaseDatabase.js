@@ -58,7 +58,7 @@ class FetchFirebaseDatabase {
 		}
 		return data.map((d) => {
 			const result = {};
-			keys.map((k) => {
+			keys.map((k) => { // eslint-disable-line
 				result[k] = d[k];
 			});
 			return result;
