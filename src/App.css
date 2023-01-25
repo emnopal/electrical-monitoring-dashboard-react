@@ -163,3 +163,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.statHeaders{
+  display:flex;
+  /* flex-direction:row; */
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}

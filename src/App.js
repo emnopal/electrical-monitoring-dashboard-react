@@ -13,6 +13,7 @@ import dbRef from './config/firebaseConfig';
 import { get, child } from 'firebase/database';
 import flattenObj from './utils/flattenObj';
 import FetchFirebaseDatabase from './utils/fetchFirebaseDatabase';
+import GaugeChart from './chart/GaugeChart';
 
 class App extends Component {
   constructor(props) {
@@ -25,17 +26,17 @@ class App extends Component {
     };
 
     this.zeroSelected = this.zeroSelected.bind(this);
-    this.currentSelected = this.keySelected.bind(this, 1, 'Current');
-    this.energySelected = this.keySelected.bind(this, 2, 'Energy');
-    this.frequencySelected = this.keySelected.bind(this, 3, 'Frequency');
-    this.powerFactorSelected = this.keySelected.bind(this, 4, 'Power Factor');
-    this.powerSelected = this.keySelected.bind(this, 5, 'Power');
-    this.priceSelected = this.keySelected.bind(this, 6, 'Total Price');
-    this.voltageSelected = this.keySelected.bind(this, 7, 'Voltage');
+    this.currentSelected = this.keySelected.bind(this, 1, 'Current', 'A');
+    this.energySelected = this.keySelected.bind(this, 2, 'Energy', 'J');
+    this.frequencySelected = this.keySelected.bind(this, 3, 'Frequency', 'Hz');
+    this.powerFactorSelected = this.keySelected.bind(this, 4, 'Power Factor', 'W');
+    this.powerSelected = this.keySelected.bind(this, 5, 'Power', 'W');
+    this.priceSelected = this.keySelected.bind(this, 6, 'Total Price', 'Rp. ');
+    this.voltageSelected = this.keySelected.bind(this, 7, 'Voltage', 'V');
 
   }
 
-  async keySelected(selected, title) {
+  async keySelected(selected, title, units) {
     const snapshot = await get(child(dbRef, `UsersData/${process.env.REACT_APP_UID}`));
     if (snapshot.exists()) {
       const snapshotFlatten = flattenObj(snapshot.val(), 'array');
@@ -44,7 +45,8 @@ class App extends Component {
       this.setState({
         selected: selected,
         data: _.cloneDeep(data),
-        title: title
+        title: title,
+        units: units,
       });
     }
   }
@@ -107,7 +109,10 @@ class App extends Component {
             </Nav>
             <br/>
             <Container>
-                <StatisticsChart data={this.state.data} title={this.state.title} />
+              <div className='statHeaders'>
+                <StatisticsChart data={this.state.data} title={this.state.title} units={this.state.units}/>
+                <GaugeChart data={this.state.data} title={this.state.title} units={this.state.units}/>
+              </div>
                 <br/>
                 <ChartHighstock data={this.state.data} title={this.state.title} />
                 <br/>
