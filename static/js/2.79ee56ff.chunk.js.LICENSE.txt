@@ -10,8 +10,6 @@ object-assign
 	http://jedwatson.github.io/classnames
 */
 
-/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -104,6 +102,14 @@ object-assign
  * Released under MIT license <https://lodash.com/license>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/**
+ * @license Highcharts JS v7.2.2 (2020-08-24)
+ *
+ * (c) 2009-2018 Torstein Honsi
+ *
+ * License: www.highcharts.com/license
  */
 
 /** @license React v0.19.1
