@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/electrical-monitoring-dashboard-react/precache-manifest.9b42333ec2dfdf7861ecbdbab20655e4.js"
+  "/electrical-monitoring-dashboard-react/precache-manifest.a2db5b1cc2236d690be5af85d191581a.js"
 );
 
 self.addEventListener('message', (event) => {
