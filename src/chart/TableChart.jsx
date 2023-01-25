@@ -8,6 +8,7 @@ class TabelChart extends Component {
 		this.state = {
 			title: props.title,
 			data: props.data,
+			units: props.units
 		};
 	}
 
@@ -19,6 +20,7 @@ class TabelChart extends Component {
 			this.setState({
 				title: this.props.title,
 				data: this.props.data,
+				units: this.props.units
 			});
 		}
 	}
@@ -33,15 +35,19 @@ class TabelChart extends Component {
 			<Table>
 				<thead>
 					<tr>
-						<th>{this.state.title}</th>
-						<th>Timestamp</th>
-						<th>Readable Timestamp</th>
+						<th>{this.state.title} (in {this.state.units})</th>
+						<th>Timestamp (s)</th>
+						<th>Readable Timestamp (GMT+7)</th>
 					</tr>
 				</thead>
 				<tbody>
 					{this.state.data.map((item, index) => (
 						<tr key={index}>
-							<td>{item[this.state.title]}</td>
+							<td>
+								{this.state.title === 'Total Price' ? `${this.state.units} ` : ''}
+								{item[this.state.title]}
+								{this.state.title !== 'Total Price' ? ` ${this.state.units}` : ''}
+							</td>
 							<td>{item["timestamp"]}</td>
 							<td>{this.convertLocale(item["timestamp"])}</td>
 						</tr>
@@ -55,6 +61,7 @@ class TabelChart extends Component {
 TabelChart.propTypes = {
 	title: PropTypes.string,
 	data: PropTypes.array,
+	units: PropTypes.string
 };
 
 export default TabelChart;

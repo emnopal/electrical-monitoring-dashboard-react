@@ -116,7 +116,7 @@ class App extends Component {
                 <br/>
                 <ChartHighstock data={this.state.data} title={this.state.title} />
                 <br/>
-                <TabelChart data={this.state.data} title={this.state.title} />
+                <TabelChart data={this.state.data} title={this.state.title} units={this.state.units} />
             </Container>
         </Container>
     );
