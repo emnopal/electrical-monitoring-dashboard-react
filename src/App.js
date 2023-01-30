@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ChartHighstock from './chart/ChartHighstock';
+import { get, child } from 'firebase/database';
 import * as _ from 'lodash';
 import './App.css';
 import Container from 'react-bootstrap/Container';
@@ -7,13 +7,16 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import StatisticsChart from "./chart/StatisticsChart";
-import TabelChart from './chart/TableChart';
-import dbRef from './config/firebaseConfig';
-import { get, child } from 'firebase/database';
-import flattenObj from './utils/flattenObj';
-import FetchFirebaseDatabase from './utils/fetchFirebaseDatabase';
-import GaugeChart from './chart/GaugeChart';
+import ChartHighstock from './Components/Chart/ChartHighstock';
+import StatisticsChart from "./Components/Chart/StatisticsChart";
+import TabelChart from './Components/Chart/TableChart';
+import GaugeChart from './Components/Chart/GaugeChart';
+import dbRef from './Helper/Config/firebaseConfig';
+import flattenObj from './Helper/Utils/flattenObj';
+import FetchFirebaseDatabase from './Helper/Utils/fetchFirebaseDatabase';
+import WelcomePage from './Components/Pages/WelcomePage';
+import Header from './Components/Pages/Header';
+
 
 class App extends Component {
   constructor(props) {
@@ -61,65 +64,42 @@ class App extends Component {
 
   zeroHandlerSelected() {
     return (
-        <Container>
-            <br/>
-            <br/>
-            <Container>
-                <h1>Electrical Monitoring Dashboard</h1>
-                Note: Time in UTC+7 (Asia/Jakarta)
-            </Container>
-            <br/>
-            <Nav className="justify-content-center">
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 0 ? 'active' : '')} onClick={this.zeroSelected}>Home</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 2 ? 'active' : '')} onClick={this.energySelected}>Energy</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.frequencySelected}>Frequency</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 4 ? 'active' : '')} onClick={this.powerFactorSelected}>Power Factor</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 5 ? 'active' : '')} onClick={this.powerSelected}>Power</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 6 ? 'active' : '')} onClick={this.priceSelected}>Total Price</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 7 ? 'active' : '')} onClick={this.voltageSelected}>Voltage</Button>
-            </Nav>
-            <br/>
-            <Container>
-                <h1>Welcome!</h1>
-            </Container>
-        </Container>
+      <Container>
+        <WelcomePage title={this.state.title} />
+      </Container>
     );
   }
 
   otherHandlerSelected() {
     return (
-        <Container>
-            <br/>
-            <br/>
-            <Container>
-                <h1>Electrical Monitoring Dashboard</h1>
-                Note: Time in UTC+7 (Asia/Jakarta)
-            </Container>
-            <br/>
-            <Nav className="justify-content-center">
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 0 ? 'active' : '')} onClick={this.zeroSelected}>Home</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 2 ? 'active' : '')} onClick={this.energySelected}>Energy</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.frequencySelected}>Frequency</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 4 ? 'active' : '')} onClick={this.powerFactorSelected}>Power Factor</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 5 ? 'active' : '')} onClick={this.powerSelected}>Power</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 6 ? 'active' : '')} onClick={this.priceSelected}>Total Price</Button>
-                <Button type='button' className={"btn btn-highchart " + (this.state.selected === 7 ? 'active' : '')} onClick={this.voltageSelected}>Voltage</Button>
-            </Nav>
-            <br/>
-            <Container>
-              <div className='statHeaders'>
-                <StatisticsChart data={this.state.data} title={this.state.title} units={this.state.units}/>
-                <GaugeChart data={this.state.data} title={this.state.title} units={this.state.units}/>
-              </div>
-                <br/>
-                <ChartHighstock data={this.state.data} title={this.state.title} />
-                <br/>
-                <TabelChart data={this.state.data} title={this.state.title} units={this.state.units} />
-            </Container>
-        </Container>
+      <Container>
+        <div className='statHeaders'>
+          <StatisticsChart data={this.state.data} title={this.state.title} units={this.state.units}/>
+          <GaugeChart data={this.state.data} title={this.state.title} units={this.state.units}/>
+        </div>
+        <div>
+          <br/>
+          <ChartHighstock data={this.state.data} title={this.state.title} />
+          <br/>
+          <TabelChart data={this.state.data} title={this.state.title} units={this.state.units} />
+        </div>
+      </Container>
     );
+  }
+
+  buttonHandler() {
+    return (
+      <Nav className="justify-content-center">
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 0 ? 'active' : '')} onClick={this.zeroSelected}>Home</Button>
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 1 ? 'active' : '')} onClick={this.currentSelected}>Current</Button>
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 2 ? 'active' : '')} onClick={this.energySelected}>Energy</Button>
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 3 ? 'active' : '')} onClick={this.frequencySelected}>Frequency</Button>
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 4 ? 'active' : '')} onClick={this.powerFactorSelected}>Power Factor</Button>
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 5 ? 'active' : '')} onClick={this.powerSelected}>Power</Button>
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 6 ? 'active' : '')} onClick={this.priceSelected}>Total Price</Button>
+        <Button type='button' className={"btn btn-highchart " + (this.state.selected === 7 ? 'active' : '')} onClick={this.voltageSelected}>Voltage</Button>
+      </Nav>
+    )
   }
 
   render() {
@@ -129,9 +109,18 @@ class App extends Component {
     } else {
       conditionalContainer = this.otherHandlerSelected();
     }
+    const button = this.buttonHandler();
     return (
       <div className="App">
-        {conditionalContainer}
+        <Container>
+          <br/>
+          <br/>
+          <Header title={this.state.title}/>
+          <br/>
+            {button}
+          <br/>
+          {conditionalContainer}
+        </Container>
       </div>
     )
   }
