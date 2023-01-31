@@ -20,6 +20,16 @@ class Gauge extends Component {
     createGaugeChart() {
         const arrFromObj = this.props.data.map((obj) => obj[this.props.title]);
 
+        let bgColor, textColor;
+
+        if (this.props.theme === 'dark') {
+            bgColor = "#121212FF"
+            textColor = "#FFFFFFFF"
+        } else {
+            bgColor = "#FFFDFDFF"
+            textColor = "#000000FF"
+        }
+
         Highcharts.chart("gaugeChart", {
             rangeSelector: {
                 selected: 1,
@@ -27,10 +37,14 @@ class Gauge extends Component {
 
             chart: {
                 type: "gauge",
+                backgroundColor: bgColor,
             },
 
             title: {
                 text: this.props.title,
+                style: {
+                    color: textColor,
+                }
             },
 
             pane: {
@@ -46,9 +60,7 @@ class Gauge extends Component {
                 max: Math.max(...arrFromObj),
                 tickPixelInterval: 72,
                 tickPosition: "inside",
-                tickColor:
-                    Highcharts.defaultOptions.chart.backgroundColor ||
-                    "#FFFFFF",
+                tickColor: bgColor,
                 tickLength: 20,
                 tickWidth: 2,
                 minorTickInterval: null,
@@ -56,6 +68,7 @@ class Gauge extends Component {
                     distance: 20,
                     style: {
                         fontSize: "14px",
+                        color: textColor,
                     },
                 },
                 plotBands: [
@@ -90,11 +103,7 @@ class Gauge extends Component {
                     dataLabels: {
                         format: this.props.title === 'Total Price' ? this.props.units + "{y} " : "{y} " + this.props.units,
                         borderWidth: 0,
-                        color:
-                            (Highcharts.defaultOptions.title &&
-                                Highcharts.defaultOptions.title.style &&
-                                Highcharts.defaultOptions.title.style.color) ||
-                            "#333333",
+                        color: textColor,
                         style: {
                             fontSize: "16px",
                         },
