@@ -12,6 +12,16 @@ class Stock extends Component {
     }
 
     createStockChart() {
+        let bgColor, textColor;
+
+        if (this.props.theme === 'dark') {
+            bgColor = "#121212FF"
+            textColor = "#FFFFFFFF"
+        } else {
+            bgColor = "#FFFDFDFF"
+            textColor = "#000000FF"
+        }
+
         let formatData = [];
         formatData = this.props.data
             .map((obj) => {
@@ -23,12 +33,20 @@ class Stock extends Component {
             .reverse();
 
         Highcharts.stockChart("chart", {
+
+            chart: {
+                backgroundColor: bgColor,
+            },
+
             rangeSelector: {
                 selected: 1,
             },
 
             title: {
                 text: this.props.title,
+                style: {
+                    color: textColor,
+                }
             },
 
             series: [
