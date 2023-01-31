@@ -31,25 +31,32 @@ class TabelChart extends Component {
     }
 
     render() {
+        let tableColorStyle;
+        if (this.props.theme === 'dark') {
+            tableColorStyle = "text-light bg-dark"
+        } else {
+            tableColorStyle = "text-dark bg-light"
+        }
+
         return (
             <Table className="table-light">
                 <thead>
                 <tr>
-                    <th className="text-light bg-dark">{this.state.title} (in {this.state.units})</th>
-                    <th className="text-light bg-dark">Timestamp (s)</th>
-                    <th className="text-light bg-dark">Readable Timestamp (GMT+7)</th>
+                    <th className={tableColorStyle}>{this.state.title} (in {this.state.units})</th>
+                    <th className={tableColorStyle}>Timestamp (s)</th>
+                    <th className={tableColorStyle}>Readable Timestamp (GMT+7)</th>
                 </tr>
                 </thead>
                 <tbody>
                 {this.state.data.map((item, index) => (
                     <tr key={index}>
-                        <td className="text-light bg-dark">
+                        <td className={tableColorStyle}>
                             {this.state.title === 'Total Price' ? `${this.state.units} ` : ''}
                             {item[this.state.title]}
                             {this.state.title !== 'Total Price' ? ` ${this.state.units}` : ''}
                         </td>
-                        <td className="text-light bg-dark">{item["timestamp"]}</td>
-                        <td className="text-light bg-dark">{this.convertLocale(item["timestamp"])}</td>
+                        <td className={tableColorStyle}>{item["timestamp"]}</td>
+                        <td className={tableColorStyle}>{this.convertLocale(item["timestamp"])}</td>
                     </tr>
                 ))}
                 </tbody>
