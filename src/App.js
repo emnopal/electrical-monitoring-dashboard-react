@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Style/DarkMode.css';
 import './Style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -27,6 +26,7 @@ class App extends Component {
             selected: 0,
             data: _.cloneDeep([]),
             title: 'init',
+            theme: localStorage.getItem('theme'),
         };
 
         this.zeroSelected = this.zeroSelected.bind(this);
@@ -84,8 +84,14 @@ class App extends Component {
         const toggleTheme = (e) => {
             if (e.target.checked) {
                 setDark();
+                this.setState({
+                    theme: "dark",
+                });
             } else {
                 setLight();
+                this.setState({
+                    theme: "light",
+                });
             }
         };
 
@@ -106,7 +112,7 @@ class App extends Component {
         );
     };
 
-    Header() {
+    Header(color) {
         return (
             <Container>
                 <div className="col-lg-6">
@@ -117,10 +123,10 @@ class App extends Component {
                         <span className="input-group-btn" style={{position: "relative", top: "2.5px", left: "120%"}}>
                             <a href="https://github.com/emnopal/electrical-monitoring-dashboard-react" target="_blank"
                                rel="noopener noreferrer">
-                                <button className="btn btn-default" type="button">Repository</button>
+                                <button className="btn btn-default" type="button" style={{color: color}}>Repository</button>
                             </a>
                             <a href="https://github.com/emnopal" target="_blank" rel="noopener noreferrer">
-                                <button className="btn btn-default" type="button">Follow my Github</button>
+                                <button className="btn btn-default" type="button" style={{color: color}}>Follow my Github</button>
                             </a>
                         </span>
                     </div>
@@ -145,14 +151,14 @@ class App extends Component {
         return (
             <Container>
                 <div className='statHeaders'>
-                    <Stats data={this.state.data} title={this.state.title} units={this.state.units}/>
-                    <Gauge data={this.state.data} title={this.state.title} units={this.state.units}/>
+                    <Stats data={this.state.data} title={this.state.title} units={this.state.units} theme={this.state.theme}/>
+                    <Gauge data={this.state.data} title={this.state.title} units={this.state.units} theme={this.state.theme}/>
                 </div>
                 <div>
                     <br/>
-                    <Stock data={this.state.data} title={this.state.title}/>
+                    <Stock data={this.state.data} title={this.state.title} theme={this.state.theme}/>
                     <br/>
-                    <TabelChart data={this.state.data} title={this.state.title} units={this.state.units}/>
+                    <TabelChart data={this.state.data} title={this.state.title} units={this.state.units} theme={this.state.theme}/>
                 </div>
             </Container>
         );
@@ -183,17 +189,27 @@ class App extends Component {
 
     render() {
         let conditionalContainer;
+
         if (this.state.selected === 0) {
             conditionalContainer = this.zeroHandlerSelected();
         } else {
             conditionalContainer = this.otherHandlerSelected();
         }
+
+        let color;
+
+        if(this.state.theme === 'light') {
+            color = 'black';
+        } else {
+            color = 'white';
+        }
+
         const button = this.buttonHandler();
         return (
             <div className="App">
                 <Container>
                     <br/>
-                    {this.Header()}
+                    {this.Header(color)}
                     {button}
                     <br/>
                     {conditionalContainer}
