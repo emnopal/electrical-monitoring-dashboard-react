@@ -1,0 +1,259 @@
+:root {
+    --font-color: rgb(0, 0, 0);
+    --background-color: rgb(255, 253, 253);
+    --link-color: cornflowerblue;
+}
+
+[data-theme="dark"] {
+    --font-color: rgb(255, 255, 255);
+    --background-color: rgb(18, 18, 18);
+    --link-color: lightblue;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
+
+a {
+    color: var(--link-color);
+}
+
+.container {
+    margin: 0 15px;
+    padding: 5px;
+}
+
+.nav {
+    margin: 2em auto;
+    display: inline-block;
+}
+
+.nav .btn {
+    margin: 0 3px;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    color: #ffffff;
+    outline: none;
+}
+
+.nav .btn-d3 {
+    background: #F37753;
+}
+
+.nav .btn-d3:focus, .nav .btn-d3:hover, .nav .btn-d3.active {
+    background: #C65C4F;
+}
+
+.nav .btn-highchart {
+    background: #508CC8;
+}
+
+.nav .btn-highchart:focus, .nav .btn-highchart:hover, .nav .btn-highchart.active {
+    background: #3F51B5;
+}
+
+.nav .btn-gmaps {
+    background: #D23C2F;
+}
+
+.nav .btn-gmaps:focus, .nav .btn-gmaps:hover, .nav .btn-gmaps.active {
+    background: #EA4335;
+}
+
+.map {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.btn-hide-map {
+    position: absolute;
+    top: 440px;
+    right: 60px;
+    cursor: pointer;
+    background: grey;
+    color: white;
+    padding: .6rem;
+    z-index: 10;
+}
+
+.btn-show-map {
+    display: block;
+    width: 5rem;
+    cursor: pointer;
+    background: grey;
+    color: white;
+    padding: .6rem;
+}
+
+.btn-hide-map:hover {
+    background: darkgrey;
+}
+
+#info-window {
+    margin: 1rem .6rem;
+    text-align: left;
+}
+
+/* Style for stops table */
+.table {
+    text-align: left;
+    margin: 3rem 0 4rem 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+}
+
+@media screen and (max-width: 580px) {
+    .table {
+        display: block;
+    }
+}
+
+.row {
+    display: table-row;
+    background: #f6f6f6;
+}
+
+@media screen and (max-width: 580px) {
+    .row {
+        padding: 8px 0;
+        display: block;
+    }
+}
+
+.row:nth-of-type(odd) {
+    background: #e9e9e9;
+}
+
+.row.header {
+    font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+}
+
+@media screen and (max-width: 580px) {
+    .cell {
+        padding: 2px 12px;
+        display: block;
+    }
+}
+
+.cell.title {
+    padding: 0.8rem 0 0.7rem 0.8rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 580px) {
+    .cell.title {
+        padding: 0.8rem 0 0 0.8rem;
+    }
+}
+
+
+/* Default style */
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 50px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 100px;
+    padding: 20px;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.statHeaders {
+    display: flex;
+    /* flex-direction:row; */
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Custom Dark Mode Toggle Element */
+
+.toggle-theme-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.toggle-theme-wrapper span {
+    font-size: 28px;
+    margin: 0 4px;
+}
+
+.toggle-theme {
+    position: relative;
+    display: inline-block;
+    height: 34px;
+    width: 60px;
+}
+
+.toggle-theme input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    position: absolute;
+    cursor: pointer;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: 0.2s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+input:checked + .slider {
+    background-color: cornflowerblue;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
