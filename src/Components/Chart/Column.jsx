@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import Highcharts from "highcharts";
 
-class ColumnChart extends Component {
+class Column extends Component {
     componentDidUpdate() {
         this.createColumnChart();
     }
@@ -12,7 +12,7 @@ class ColumnChart extends Component {
     }
 
     createColumnChart() {
-        Highcharts.chart("columnChart",{
+        Highcharts.chart("columnChart", {
             rangeSelector: {
                 selected: 1,
             },
@@ -40,14 +40,14 @@ class ColumnChart extends Component {
     render() {
         return (
             <div>
-                <div id="columnChart" />
+                <div id="columnChart"/>
             </div>
         );
     }
 }
 
-ColumnChart.propTypes = {
+Column.propTypes = {
     title: PropTypes.string,
 }
 
-export default ColumnChart;
+export default Column;
