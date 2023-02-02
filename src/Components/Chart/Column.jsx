@@ -2,23 +2,23 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import Highcharts from "highcharts";
 
-class BarChart extends Component {
+class Column extends Component {
     componentDidUpdate() {
-        this.createBarChart();
+        this.createColumnChart();
     }
 
     componentDidMount() {
-        this.createBarChart();
+        this.createColumnChart();
     }
 
-    createBarChart() {
-        Highcharts.chart("barChart",{
+    createColumnChart() {
+        Highcharts.chart("columnChart", {
             rangeSelector: {
                 selected: 1,
             },
 
             chart: {
-                type: "bar"
+                type: "column"
             },
 
             title: {
@@ -40,14 +40,14 @@ class BarChart extends Component {
     render() {
         return (
             <div>
-                <div id="barChart" />
+                <div id="columnChart"/>
             </div>
         );
     }
 }
 
-BarChart.propTypes = {
+Column.propTypes = {
     title: PropTypes.string,
 }
 
-export default BarChart;
+export default Column;
