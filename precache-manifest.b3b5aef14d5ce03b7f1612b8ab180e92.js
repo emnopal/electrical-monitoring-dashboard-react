@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d8e79f3576340e6d1daa89bf4cfd51e5",
+    "revision": "5d99c504d14992724753846572f1c671",
     "url": "/electrical-monitoring-dashboard-react/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/electrical-monitoring-dashboard-react/static/css/2.f3889fcd.chunk.css"
   },
   {
-    "revision": "0df9964251adfc0c762d",
+    "revision": "16434d9fc7640fa0bed0",
     "url": "/electrical-monitoring-dashboard-react/static/css/main.1b205248.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/electrical-monitoring-dashboard-react/static/js/2.8b60b804.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0df9964251adfc0c762d",
-    "url": "/electrical-monitoring-dashboard-react/static/js/main.63d013ea.chunk.js"
+    "revision": "16434d9fc7640fa0bed0",
+    "url": "/electrical-monitoring-dashboard-react/static/js/main.1939dbf1.chunk.js"
   },
   {
     "revision": "f414d87eeab74d3ea939",
