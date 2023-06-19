@@ -50,7 +50,7 @@ class FetchFirebaseDatabase {
         }
         const data = this.sortObj(orderBy ?? "timestamp", orderSort);
         if (returnAs === "array") {
-            const result = data.map((d) => keys.map((k) => d[k]));
+            const result = data.map((d) => keys.map((k) => isNaN(d[k]) ? 0 : d[k]));
             if (isStr === 1) {
                 return result.flat(1);
             }
@@ -59,7 +59,7 @@ class FetchFirebaseDatabase {
         return data.map((d) => {
             const result = {};
             keys.map((k) => { // eslint-disable-line
-                result[k] = d[k];
+                result[k] = isNaN(d[k]) ? 0 : d[k];
             });
             return result;
         });
